@@ -1,36 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <locale.h>
-
+// СЏ РІРЅС‘СЃ РёР·РјРµРЅРµРЅРёСЏ РІ 3 Р»Р°Р±Сѓ
 using namespace std;
 
-// Структура для хранения пары (a, b)
+// Г‘ГІГ°ГіГЄГІГіГ°Г  Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЇГ Г°Г» (a, b)
 struct Pair {
     char first;
     char second;
 };
 
-// Проверка, является ли отношение функцией
+// ГЏГ°Г®ГўГҐГ°ГЄГ , ГїГўГ«ГїГҐГІГ±Гї Г«ГЁ Г®ГІГ­Г®ГёГҐГ­ГЁГҐ ГґГіГ­ГЄГ¶ГЁГҐГ©
 bool isFunction(const vector<Pair>& relation) {
     for (int i = 0; i < relation.size(); ++i) {
         for (int j = i + 1; j < relation.size(); ++j) {
             if (relation[i].first == relation[j].first &&
                 relation[i].second != relation[j].second) {
-                return false; // одному a сопоставлены разные b
+                return false; // Г®Г¤Г­Г®Г¬Гі a Г±Г®ГЇГ®Г±ГІГ ГўГ«ГҐГ­Г» Г°Г Г§Г­Г»ГҐ b
             }
         }
     }
     return true;
 }
 
-// Ввод отношения в виде матрицы
+// Г‚ГўГ®Г¤ Г®ГІГ­Г®ГёГҐГ­ГЁГї Гў ГўГЁГ¤ГҐ Г¬Г ГІГ°ГЁГ¶Г»
 void inputRelationMatrix(vector<Pair>& relation, const vector<char>& setA, const vector<char>& setB) {
     int n = setA.size();
     int m = setB.size();
 
-    cout << "Введите матрицу " << n << "x" << m << " (0 или 1):\n";
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г¬Г ГІГ°ГЁГ¶Гі " << n << "x" << m << " (0 ГЁГ«ГЁ 1):\n";
     for (int i = 0; i < n; ++i) {
-        cout << "Для элемента A[" << i << "] = '" << setA[i] << "': ";
+        cout << "Г„Г«Гї ГЅГ«ГҐГ¬ГҐГ­ГІГ  A[" << i << "] = '" << setA[i] << "': ";
         for (int j = 0; j < m; ++j) {
             int val;
             cin >> val;
@@ -52,10 +52,10 @@ int main() {
 
     int sizeA, sizeB;
 
-    // Ввод множества A
-    cout << "Введите количество элементов множества A: ";
+    // Г‚ГўГ®Г¤ Г¬Г­Г®Г¦ГҐГ±ГІГўГ  A
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г­Г®Г¦ГҐГ±ГІГўГ  A: ";
     cin >> sizeA;
-    cout << "Введите элементы множества A:\n";
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬Г­Г®Г¦ГҐГ±ГІГўГ  A:\n";
     for (int i = 0; i < sizeA; ++i) {
         char elem;
         cout << "A[" << i << "] = ";
@@ -63,10 +63,10 @@ int main() {
         setA.push_back(elem);
     }
 
-    // Ввод множества B
-    cout << "Введите количество элементов множества B: ";
+    // Г‚ГўГ®Г¤ Г¬Г­Г®Г¦ГҐГ±ГІГўГ  B
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г­Г®Г¦ГҐГ±ГІГўГ  B: ";
     cin >> sizeB;
-    cout << "Введите элементы множества B:\n";
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬Г­Г®Г¦ГҐГ±ГІГўГ  B:\n";
     for (int i = 0; i < sizeB; ++i) {
         char elem;
         cout << "B[" << i << "] = ";
@@ -74,21 +74,21 @@ int main() {
         setB.push_back(elem);
     }
 
-    // Ввод матрицы и построение отношения
+    // Г‚ГўГ®Г¤ Г¬Г ГІГ°ГЁГ¶Г» ГЁ ГЇГ®Г±ГІГ°Г®ГҐГ­ГЁГҐ Г®ГІГ­Г®ГёГҐГ­ГЁГї
     inputRelationMatrix(relation, setA, setB);
 
-    // Проверка
-    cout << "Отношение:\n";
+    // ГЏГ°Г®ГўГҐГ°ГЄГ 
+    cout << "ГЋГІГ­Г®ГёГҐГ­ГЁГҐ:\n";
     for (const auto& p : relation) {
         cout << "(" << p.first << ", " << p.second << ") ";
     }
     cout << endl;
 
     if (isFunction(relation)) {
-        cout << "Отношение является функцией.\n";
+        cout << "ГЋГІГ­Г®ГёГҐГ­ГЁГҐ ГїГўГ«ГїГҐГІГ±Гї ГґГіГ­ГЄГ¶ГЁГҐГ©.\n";
     }
     else {
-        cout << "Отношение не является функцией.\n";
+        cout << "ГЋГІГ­Г®ГёГҐГ­ГЁГҐ Г­ГҐ ГїГўГ«ГїГҐГІГ±Гї ГґГіГ­ГЄГ¶ГЁГҐГ©.\n";
     }
 
     return 0;
