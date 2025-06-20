@@ -1,18 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <locale.h>
-
+// СЏ РёР·РјРµРЅРёР» Р°РєС‚РёРІРЅРѕСЃС‚СЊ
 using namespace std;
 
 int main() {
     setlocale(LC_ALL, "");
 
     int n;
-    cout << "Сколько вершин? ";
+    cout << "Г‘ГЄГ®Г«ГјГЄГ® ГўГҐГ°ГёГЁГ­? ";
     cin >> n;
 
     vector<vector<int>> a(n, vector<int>(n));
-    cout << "Вводите матрицу смежности:\n";
+    cout << "Г‚ГўГ®Г¤ГЁГІГҐ Г¬Г ГІГ°ГЁГ¶Гі Г±Г¬ГҐГ¦Г­Г®Г±ГІГЁ:\n";
         
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -20,10 +20,10 @@ int main() {
         }
     }
 
-    // делаем копию
+    // Г¤ГҐГ«Г ГҐГ¬ ГЄГ®ГЇГЁГѕ
     vector<vector<int>> r = a;
 
-    // алгорит Уоршелла
+    // Г Г«ГЈГ®Г°ГЁГІ Г“Г®Г°ГёГҐГ«Г«Г 
     for (int k = 0; k < n; k++) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -34,7 +34,7 @@ int main() {
         }
     }
 
-    cout << "Матрица достижимости:\n";
+    cout << "ГЊГ ГІГ°ГЁГ¶Г  Г¤Г®Г±ГІГЁГ¦ГЁГ¬Г®Г±ГІГЁ:\n";
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << r[i][j] << " ";
